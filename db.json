@@ -1,0 +1,18 @@
+{
+    "projetos" : [
+        {
+            "nome":"Projeto React",
+            "descricao":"Gerenciador de projetos CRUD",
+            "valor": 22.99,
+            "acoes":"todas",
+            "referencias":"wikipedia"
+        },
+        {
+            "nome":"Projeto React",
+            "descricao":"Gerenciador de projetos CRUD",
+            "valor": 22.99,
+            "acoes":"todas",
+            "referencias":"wikipedia"
+        }
+    ]
+}
