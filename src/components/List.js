@@ -1,25 +1,40 @@
 import React, { Component } from "react";
-import { StyleSheet, View, TextInput } from "react-native";
-import { ListItem, Avatar } from '@rneui/themed'
+import { View } from "react-native";
+import { ListItem } from '@rneui/themed';
+import { useState, useEffect } from "react";
+ import api from '../services/api';
 
-const list = [
-    {
-        nome: 'Projeto React',
-        descricao: 'Gerenciador de projetos, CRUD',
-        valor: 22.99
-    },
-    {
-        nome: 'Projeto React',
-        descricao: 'Gerenciador de projetos, CRUD',
-        valor: 22.99
-    }
-];
+// const list = [
+//     {
+//         nome: 'Projeto React',
+//         descricao: 'Gerenciador de projetos, CRUD',
+//         valor: 22.99
+//     },
+//     {
+//         nome: 'Projeto React',
+//         descricao: 'Gerenciador de projetos, CRUD',
+//         valor: 22.99
+//     }
+// ];
 
-export default function List(props) {
+
+export default function List() {
+
+    const [projetos, setProjetos] = useState();
+
+    useEffect(() => {
+        api
+            .get("/projetos")
+            .then((res) => setProjetos(res.data))
+            .catch((err) => {
+                console.error("ops! ocorreu um erro" + err);
+            });
+    }, []);
+
     return (
         <View>
             {
-                list.map((l, i) => (
+                projetos?.map((l, i) => (
                     <ListItem key={i} bottomDivider>
                         <ListItem.Content>
                             <ListItem.Title>{l.nome}</ListItem.Title>

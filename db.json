@@ -9,7 +9,14 @@
         },
         {
             "nome":"Projeto React",
-            "descricao":"Gerenciador de projetos CRUD",
+            "descricao":"Projeto React Novo 2",
+            "valor": 22.99,
+            "acoes":"todas",
+            "referencias":"wikipedia"
+        },
+        {
+            "nome":"Projeto Angular 2+",
+            "descricao":"Carteira Digital",
             "valor": 22.99,
             "acoes":"todas",
             "referencias":"wikipedia"
