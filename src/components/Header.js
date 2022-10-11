@@ -6,7 +6,7 @@ function Header(props) {
     <View style={[styles.container, props.style]}>
       <View style={styles.textWrapper}>
         <TextInput
-          placeholder="PROJETOS"
+          placeholder={props.name}
           placeholderTextColor="rgba(255,255,255,1)"
           maxLength={200}
           style={styles.textInput}
@@ -18,7 +18,7 @@ function Header(props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#3F51B5",
+    backgroundColor: "#2089dc",
     padding: 4,
     justifyContent: "space-between",
     shadowColor: "#111",
@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
   },
   textInput: {
     color: "rgba(39,36,36,1)",
-    height: 36,
-    lineHeight: 50,
+    height: 46,
+    lineHeight: 70,
     letterSpacing: 0,
-    width: 148,
+    width: 180,
     fontSize: 30,
     alignSelf: "center"
   }

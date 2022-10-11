@@ -22,13 +22,10 @@ export default function List() {
         <View>
             {
                 projetos?.map((l, i) => (
-                    <ListItem key={i} bottomDivider>
+                    <ListItem key={i}>
                         <ListItem.Content>
                             <ListItem.Title>{l.nome}</ListItem.Title>
                             <ListItem.Subtitle>{l.descricao}</ListItem.Subtitle>
-                            <Button title="Solid" onPressIn={() => {
-                                console.log('You tapped the button!');
-                            }}/>
                         </ListItem.Content>
                     </ListItem>
                 ))
