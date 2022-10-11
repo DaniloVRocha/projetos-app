@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
 import { View } from 'react-native';
-import Button from '../components/Button';
+import { Button } from "@rneui/themed";
 import Header from '../components/Header';
 import List from '../components/List';
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
     return (
         <View style={styles.container}>
             <Header style={styles.header}></Header>
@@ -12,7 +12,7 @@ export default function HomeScreen() {
             <Button style={styles.buttonPlus}
                 onPressIn={() =>
                     navigation.navigate('Register')
-                }></Button>
+                }/>
         </View>
     );
 }

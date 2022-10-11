@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
 import { View } from 'react-native';
+import Button from '../components/Button';
 import Header from '../components/Header';
 
-export default function RegisterScreen(navigate) {
+export default function RegisterScreen() {
     return (
     <View style={styles.container}>
         <Header style={styles.header}></Header>
