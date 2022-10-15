@@ -7,17 +7,9 @@ export default function HomeScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <Header style={styles.header} name="PROJETOS" ></Header>
-            <List style={styles.cardList}></List>
+            <List style={styles.cardList} navigation={navigation}></List>
             <Button style={styles.buttonPlus} icon='plus'
                 nav='Register' navigation={navigation}></Button>
-            {/* <TouchableOpacity
-                activeOpacity={0.7}
-                style={styles.buttonPlus}
-                onPressIn={() =>
-                    navigation.navigate('Register')
-                }>
-                <Icon name="add"></Icon>
-            </TouchableOpacity> */}
         </View>
     );
 }
