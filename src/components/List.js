@@ -4,7 +4,7 @@ import { View } from "react-native";
 import api from '../services/api';
 
 
-export default function List() {
+export default function List(props) {
 
     const [projetos, setProjetos] = useState();
 
@@ -20,7 +20,11 @@ export default function List() {
         <View>
             {
                 projetos?.map((l, i) => (
-                    <ListItem key={i} >
+                    <ListItem key={i} button
+                    onPress={() =>{
+                        console.log("teste")
+                        props.navigation.navigate(`${props.nav}`)
+                    }}>
                         <ListItem.Content>
                             <ListItem.Title>{l.nome}</ListItem.Title>
                             <ListItem.Subtitle>{l.descricao}</ListItem.Subtitle>

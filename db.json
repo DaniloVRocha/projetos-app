@@ -65,11 +65,11 @@
       "referencias": "wikipedia"
     },
     {
-      "nome": "teste",
-      "descricao": "teste",
-      "valor": 0,
-      "acoes": "",
-      "referencias": "",
+      "nome": "Projeto React Native",
+      "descricao": "projeto realizado para aula",
+      "valor": "15.99",
+      "acoes": "CRUD",
+      "referencias": "wikipedia",
       "id": 9
     }
   ]

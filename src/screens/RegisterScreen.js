@@ -9,13 +9,11 @@ import Header from '../components/Header';
 
 
 export default function RegisterScreen({ navigation }) {
-
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
     const [valor, setValor] = useState(0);
     const [acoes, setAcoes] = useState('');
     const [referencias, setReferencias] = useState('');
-
     function enviar() {
         const data = {
             nome,
@@ -27,6 +25,7 @@ export default function RegisterScreen({ navigation }) {
 
         console.log(data);
 
+
         api.post("/projetos", data)
             .then((response) => {
                 console.log(response);
@@ -34,6 +33,7 @@ export default function RegisterScreen({ navigation }) {
             .catch((error) => {
                 console.error(error);
             });
+
     }
 
     return (

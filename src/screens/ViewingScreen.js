@@ -3,13 +3,13 @@ import Button from '../components/Button';
 import Header from '../components/Header';
 import List from '../components/List';
 
-export default function HomeScreen({ navigation }) {
+export default function ViewingScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <Header style={styles.header} name="PROJETOS" ></Header>
-            <List style={styles.cardList} nav='Viewing' navigation={navigation}></List>
-            <Button style={styles.buttonPlus} icon='plus'
-                nav='Register' navigation={navigation}></Button>
+            <Header style={styles.header} name="NOME DO PROJETO" ></Header>
+
+            <Button style={styles.buttonPlus} icon='pencil'
+                nav='Viewing' navigation={navigation}></Button>
         </View>
     );
 }
