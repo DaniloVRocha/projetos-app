@@ -6,7 +6,7 @@ import List from '../components/List';
 export default function HomeScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <Header style={styles.header} name="PROJETOS" ></Header>
+            <Header style={styles.header} name="TESTE DE TITULO" ></Header>
             <List style={styles.cardList} nav='Viewing' navigation={navigation}></List>
             <Button style={styles.buttonPlus} icon='plus'
                 nav='Register' navigation={navigation}></Button>

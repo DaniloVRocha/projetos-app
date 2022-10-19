@@ -33,15 +33,15 @@ const styles = StyleSheet.create({
   },
   textWrapper: {
     flex: 1,
-    alignSelf: "stretch",
+    alignSelf: "center",
     justifyContent: "center"
   },
   textInput: {
     color: "rgba(39,36,36,1)",
-    height: 46,
+    height: 56,
     lineHeight: 70,
     letterSpacing: 0,
-    width: 180,
+    width: 280,
     fontSize: 30,
     alignSelf: "center"
   }

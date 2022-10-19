@@ -9,68 +9,20 @@
       "referencias": "wikipedia"
     },
     {
-      "id": 2,
-      "nome": "Projeto React",
-      "descricao": "Projeto React Novo 2",
-      "valor": 22.99,
-      "acoes": "todas",
-      "referencias": "wikipedia"
-    },
-    {
-      "id": 3,
-      "nome": "Projeto Angular 2+",
-      "descricao": "Carteira Digital",
-      "valor": 22.99,
-      "acoes": "todas",
-      "referencias": "wikipedia"
-    },
-    {
-      "id": 4,
-      "nome": "Projeto Angular 2+",
-      "descricao": "Carteira Digital",
-      "valor": 22.99,
-      "acoes": "todas",
-      "referencias": "wikipedia"
-    },
-    {
-      "id": 5,
-      "nome": "Projeto Angular 2+",
-      "descricao": "Carteira Digital",
-      "valor": 22.99,
-      "acoes": "todas",
-      "referencias": "wikipedia"
-    },
-    {
-      "id": 6,
-      "nome": "Projeto Angular 2+",
-      "descricao": "Carteira Digital",
-      "valor": 22.99,
-      "acoes": "todas",
-      "referencias": "wikipedia"
-    },
-    {
-      "id": 7,
-      "nome": "Projeto Angular 2+",
-      "descricao": "Carteira Digital",
-      "valor": 22.99,
-      "acoes": "todas",
-      "referencias": "wikipedia"
-    },
-    {
-      "id": 8,
-      "nome": "Projeto Angular 2+",
-      "descricao": "Carteira Digital",
-      "valor": 22.99,
-      "acoes": "todas",
-      "referencias": "wikipedia"
-    },
-    {
       "nome": "Projeto React Native",
-      "descricao": "projeto realizado para aula",
-      "valor": "15.99",
+      "descricao": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only f",
+      "valor": 15.99,
       "acoes": "CRUD",
       "referencias": "wikipedia",
-      "id": 9
+      "id": 2
+    },
+    {
+      "nome": "Spring Boot API",
+      "descricao": "API REST desenvolvida com o ecossistema spring",
+      "valor": "29.99",
+      "acoes": "Inserção\nExclusão\nteste\nJson server",
+      "referencias": "Wikipedia\nStackOverflow",
+      "id": 3
     }
   ]
 }
