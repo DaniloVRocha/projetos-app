@@ -6,7 +6,12 @@ export default function Button(props) {
     return (
         <TouchableOpacity style={[styles.container, props.style]}
             onPressIn={() =>{
-                props.navigation.navigate(`${props.nav}`)
+                if(props.nav == 'Edit'){
+                    props.navigation.navigate(`${props.nav}`, { id: `${props.idprojeto}` })
+                }else{
+                    props.navigation.navigate(`${props.nav}`, { id: 0 })
+                }
+                
             }}>
             <Icon name={props.icon} style={styles.icon}></Icon>
         </TouchableOpacity>

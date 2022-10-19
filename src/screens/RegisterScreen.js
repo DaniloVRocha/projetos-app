@@ -8,13 +8,37 @@ import Header from '../components/Header';
 
 
 
-export default function RegisterScreen({ navigation }) {
+export default function RegisterScreen({ navigation, route }) {
+
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
-    const [valor, setValor] = useState(0);
+    const [valor, setValor] = useState('');
     const [acoes, setAcoes] = useState('');
     const [referencias, setReferencias] = useState('');
+
+    const [projeto = { nome: "", descricao: "", valor: 0.0, acoes: "", referencias: "" }, setProjeto] = useState();
+
+
+    useEffect(() => {
+        if (route.params.id != 0) {
+            api.get(`/projetos/${route.params.id}`)
+                .then((res) => {
+                    setProjeto(res.data)
+                    setNome(projeto.nome);
+                    setDescricao(projeto.descricao);
+                    setValor(projeto.valor);
+                    setAcoes(projeto.acoes);
+                    setReferencias(projeto.referencias);
+                })
+                .catch((err) => {
+                    console.error("Erro ao consultar API, " + err);
+                });
+        }
+    });
+
+
     function enviar() {
+
         const data = {
             nome,
             descricao,
@@ -23,10 +47,9 @@ export default function RegisterScreen({ navigation }) {
             referencias
         }
 
-        console.log(data);
+        setProjeto(data)
 
-
-        api.post("/projetos", data)
+        api.post("/projetos", projeto)
             .then((response) => {
                 console.log(response);
             })
@@ -58,7 +81,7 @@ export default function RegisterScreen({ navigation }) {
                 onChangeText={setValor}
                 value={valor}
                 placeholder="Valor"
-                keyboardType="number"
+                keyboardType="text"
             />
             <Text style={{ margin: 12, fontSize: 15, fontWeight: "bold" }}>Ações</Text>
             <TextInput

@@ -12,6 +12,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Listar Projetos' }}/>
         <Stack.Screen name="Register" component={RegisterScreen} options={{ title: 'Cadastrar Projetos' }}/>
+        <Stack.Screen name="Edit" component={RegisterScreen} options={{ title: 'Editar Projetos' }}/>
         <Stack.Screen name="Viewing" component={ViewingScreen} options={{ title: 'Visualizar Projetos' }}/>
       </Stack.Navigator>
     </NavigationContainer>

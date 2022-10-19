@@ -19,12 +19,12 @@ export default function ViewingScreen({ navigation, route }) {
     return (
         <View style={styles.container}>
             <Header style={styles.header} name={projeto.nome} ></Header>
-            <Text style = {styles.textTitle}>Descrição: {'\n'}{projeto.descricao}</Text>
-            <Text style = {styles.textTitle}>Valor: R$ {projeto.valor}</Text>
-            <Text style = {styles.textTitle}>Ações: {'\n'}{projeto.acoes}</Text>
-            <Text style = {styles.textTitle}>Referências: {'\n'}{projeto.referencias}</Text>
+            <Text style={styles.textTitle}>Descrição: {'\n'}{projeto.descricao}</Text>
+            <Text style={styles.textTitle}>Valor: R$ {projeto.valor}</Text>
+            <Text style={styles.textTitle}>Ações: {'\n'}{projeto.acoes}</Text>
+            <Text style={styles.textTitle}>Referências: {'\n'}{projeto.referencias}</Text>
             <Button style={styles.buttonPlus} icon='pencil'
-                nav='Viewing' navigation={navigation}></Button>
+                nav='Edit' idprojeto={route.params.id} navigation={navigation}></Button>
         </View>
     );
 }

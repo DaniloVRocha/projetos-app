@@ -22,7 +22,6 @@ export default function List(props) {
                 projetos?.map((l, i) => (
                     <ListItem key={i} button
                     onPress={() =>{
-                        console.log(i)
                         props.navigation.navigate(`${props.nav}`, { id: `${i+1}` })
                     }}>
                         <ListItem.Content>

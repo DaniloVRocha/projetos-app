@@ -19,7 +19,7 @@
     {
       "nome": "Spring Boot API",
       "descricao": "API REST desenvolvida com o ecossistema spring",
-      "valor": "29.99",
+      "valor": 29.99,
       "acoes": "Inserção\nExclusão\nteste\nJson server",
       "referencias": "Wikipedia\nStackOverflow",
       "id": 3
