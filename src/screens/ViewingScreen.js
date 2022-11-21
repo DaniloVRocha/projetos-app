@@ -1,30 +1,19 @@
-import { StyleSheet, View, Text } from 'react-native';
 import React, { useEffect, useState } from "react";
-import api from '../services/api';
+import { StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button';
 import Header from '../components/Header';
-import List from '../components/List';
+import api from '../services/api';
 
-export default function ViewingScreen({ navigation, route }) {
-    const [projeto = {nome:"", descricao:"", valor:0, acoes:"", referencias:""}, setProjeto] = useState();
-
-    useEffect(() => {
-        api.get(`/projetos/${route.params.id}`)
-            .then((res) => setProjeto(res.data))
-            .catch((err) => {
-                console.error("Erro ao consultar API, " + err);
-            });
-    });
+export default  props => {
 
     return (
         <View style={styles.container}>
-            <Header style={styles.header} name={projeto.nome} ></Header>
-            <Text style={styles.textTitle}>Descrição: {'\n'}{projeto.descricao}</Text>
-            <Text style={styles.textTitle}>Valor: R$ {projeto.valor}</Text>
-            <Text style={styles.textTitle}>Ações: {'\n'}{projeto.acoes}</Text>
-            <Text style={styles.textTitle}>Referências: {'\n'}{projeto.referencias}</Text>
+            <Text style={styles.textTitle}>Descrição: {'\n'}{props.route.params.descricao}</Text>
+            <Text style={styles.textTitle}>Valor: R$ {props.route.params.valor}</Text>
+            <Text style={styles.textTitle}>Ações: {'\n'}{props.route.params.acoes}</Text>
+            <Text style={styles.textTitle}>Referências: {'\n'}{props.route.params.referencias}</Text>
             <Button style={styles.buttonPlus} icon='pencil'
-                nav='Edit' idprojeto={route.params.id} navigation={navigation}></Button>
+                nav='Edit' projeto={props.route.params} navigation={props.navigation}></Button>
         </View>
     );
 }

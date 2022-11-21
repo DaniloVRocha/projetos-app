@@ -1,17 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 export default function Button(props) {
     return (
         <TouchableOpacity style={[styles.container, props.style]}
-            onPressIn={() =>{
-                if(props.nav == 'Edit'){
-                    props.navigation.navigate(`${props.nav}`, { id: `${props.idprojeto}` })
-                }else{
-                    props.navigation.navigate(`${props.nav}`, { id: 0 })
+            onPressIn={() => {
+                if (props.nav == 'Edit') {
+                    props.navigation.navigate(`${props.nav}`, props.projeto)
+                } else {
+                    props.navigation.navigate(`${props.nav}`)
                 }
-                
             }}>
             <Icon name={props.icon} style={styles.icon}></Icon>
         </TouchableOpacity>

@@ -1,12 +1,10 @@
 import { StyleSheet, View } from 'react-native';
 import Button from '../components/Button';
-import Header from '../components/Header';
 import List from '../components/List';
 
 export default function HomeScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <Header style={styles.header} name="PROJETOS" ></Header>
             <List style={styles.cardList} nav='Viewing' navigation={navigation}></List>
             <Button style={styles.buttonPlus} icon='plus'
                 nav='Register' navigation={navigation}></Button>

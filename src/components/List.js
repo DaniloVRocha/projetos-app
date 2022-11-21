@@ -1,10 +1,10 @@
-import { ListItem } from '@rneui/themed';
 import React, { useEffect, useState } from "react";
-import { View } from "react-native";
+import { FlatList, View } from "react-native";
+import { ListItem } from 'react-native-elements';
 import api from '../services/api';
 
 
-export default function List(props) {
+export default props => {
 
     const [projetos, setProjetos] = useState();
 
@@ -16,21 +16,25 @@ export default function List(props) {
             });
     }, []);
 
+    const getProjetos = ({ item: projeto }) => (
+        <ListItem
+            bottomDivider
+            onPress={() => props.navigation.navigate('Viewing', projeto)}>
+            <ListItem.Content>
+                <ListItem.Title>{projeto.nome}</ListItem.Title>
+                <ListItem.Subtitle>{projeto.descricao}</ListItem.Subtitle>
+            </ListItem.Content>
+        </ListItem>
+    );
+
+
     return (
         <View>
-            {
-                projetos?.map((l, i) => (
-                    <ListItem key={i} button
-                    onPress={() =>{
-                        props.navigation.navigate(`${props.nav}`, { id: `${i+1}` })
-                    }}>
-                        <ListItem.Content>
-                            <ListItem.Title>{l.nome}</ListItem.Title>
-                            <ListItem.Subtitle>{l.descricao}</ListItem.Subtitle>
-                        </ListItem.Content>
-                    </ListItem>
-                ))
-            }
+            <FlatList
+                keyExtract={projeto => projeto.id.toString()}
+                data={projetos}
+                renderItem={getProjetos}
+            />
         </View>
     );
 }

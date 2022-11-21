@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
+import React, { useState } from "react";
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import api from '../services/api';
-import { useForm } from "react-hook-form";
-import Header from '../components/Header';
 
 
 export default props => {
 
-    const [projeto, setProjeto] = useState({})
+    const [projeto, setProjeto] = useState(props.route.params)
 
-    function enviar() {
-        api.post("/projetos", projeto)
+    function editar() {
+        api.put("/projetos/${id}", projeto)
             .then((response) => {
                 console.log(response);
             })
@@ -42,9 +39,9 @@ export default props => {
             <TextInput
                 style={styles.input}
                 onChangeText={valor => setProjeto({ ...projeto, valor })}
-                value={projeto.valor}
+                value={projeto.valor.toString()}
                 placeholder="Valor"
-                keyboardType="number"
+                keyboardType="text"
             />
             <Text style={{ margin: 12, fontSize: 15, fontWeight: "bold" }}>Ações</Text>
             <TextInput
@@ -72,7 +69,7 @@ export default props => {
             <TouchableOpacity style={[styles.butoa, styles.buttonPlus]}
                 onPress={() => {
                     enviar();
-                    props.navigation.navigate('Home')
+                    navigation.navigate('Home')
                 }}>
                 <Icon name='check' style={styles.icon}></Icon>
             </TouchableOpacity>

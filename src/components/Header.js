@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { StyleSheet, View, TextInput } from "react-native";
+import React from "react";
+import { StyleSheet, TextInput, View } from "react-native";
 
 function Header(props) {
   return (
