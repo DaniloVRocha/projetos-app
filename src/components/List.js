@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, View } from "react-native";
-import { ListItem } from 'react-native-elements';
+import { FlatList, View, StyleSheet } from "react-native";
+import { ListItem, Button, Icon} from 'react-native-elements';
 import api from '../services/api';
 
 
@@ -18,11 +18,12 @@ export default props => {
 
     const getProjetos = ({ item: projeto }) => (
         <ListItem
-            bottomDivider
-            onPress={() => props.navigation.navigate('Viewing', projeto)}>
+            onPress={() => props.navigation.navigate('Viewing', projeto)}
+            key={projeto.id}
+            bottomDivider>
             <ListItem.Content>
                 <ListItem.Title>{projeto.nome}</ListItem.Title>
-                <ListItem.Subtitle>{projeto.descricao}</ListItem.Subtitle>
+                <ListItem.Subtitle>{projeto.descricao}</ListItem.Subtitle>   
             </ListItem.Content>
         </ListItem>
     );
@@ -38,3 +39,12 @@ export default props => {
         </View>
     );
 }
+
+
+const styles = StyleSheet.create({
+    icon: {
+        color: "red",
+        fontSize: 24,
+        alignSelf: "center"
+    }
+});

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { Alert } from "react-native";
 import { StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button';
 import Header from '../components/Header';
 import api from '../services/api';
 
-export default  props => {
+export default props => {
 
     return (
         <View style={styles.container}>
+            <Text style={styles.textTitle}>Nome Projeto: {'\n'}{props.route.params.nome}</Text>
             <Text style={styles.textTitle}>Descrição: {'\n'}{props.route.params.descricao}</Text>
             <Text style={styles.textTitle}>Valor: R$ {props.route.params.valor}</Text>
             <Text style={styles.textTitle}>Ações: {'\n'}{props.route.params.acoes}</Text>
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
     textTitle: {
         fontSize: 20,
         fontWeight: 'bold',
-        margin:10
+        margin: 10
     },
     cardList: {
         marginTop: 20,
@@ -46,3 +48,4 @@ const styles = StyleSheet.create({
         bottom: 30,
     }
 });
+

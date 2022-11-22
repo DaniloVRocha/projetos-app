@@ -1,14 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
+import React, { useState } from "react";
+import { Keyboard } from "react-native";
+import { Alert } from "react-native";
+import { StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import api from '../services/api';
-import { useForm } from "react-hook-form";
-import Header from '../components/Header';
 
 
 export default props => {
 
+    //getData iria dentro do useState 
     const [projeto, setProjeto] = useState({})
+
+    // const getData = async () => {
+    //     try {
+    //       const value = await AsyncStorage.getItem('projeto')
+    //       if(value !== null) {
+    //         return projeto;
+    //       }else{
+    //         return {};
+    //       }
+    //     } catch(e) {
+          
+    //     }
+    //   }
+
+    //   const gravarAsync = async () => {
+    //     try{
+    //         await AsyncStorage.setItem(`"projeto"`, projeto);
+    //         Keyboard.dismiss();
+    //         Alert.alert("Sucesso", "Salvo no AsyncStorage")
+    //     }catch (e) {
+
+    //     }
+    // }
 
     function enviar() {
         api.post("/projetos", projeto)
