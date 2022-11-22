@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-
+import api from '../services/api';
 
 export default props => {
 
     const [projeto, setProjeto] = useState(props.route.params)
 
     function editar() {
-        api.put("/projetos/${id}", projeto)
+        api.put(`/projetos/${projeto.id}`, projeto)
             .then((response) => {
                 console.log(response);
             })
@@ -68,8 +68,8 @@ export default props => {
 
             <TouchableOpacity style={[styles.butoa, styles.buttonPlus]}
                 onPress={() => {
-                    enviar();
-                    navigation.navigate('Home')
+                    editar();
+                    props.navigation.navigate('Home')
                 }}>
                 <Icon name='check' style={styles.icon}></Icon>
             </TouchableOpacity>
