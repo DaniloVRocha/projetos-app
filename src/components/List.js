@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Alert } from "react-native";
 import { FlatList, StyleSheet, View } from "react-native";
-import { ListItem } from 'react-native-elements';
+import { ListItem, Button, Icon } from 'react-native-elements';
 import api from '../services/api';
 
 
@@ -16,6 +17,23 @@ export default props => {
             });
     }, []);
 
+    function deleteProjeto(id) {
+        Alert.alert('Excluir Projeto', 'Deseja Excluir o Projeto?',[
+            {
+                text: 'Sim',
+                onPress() {
+                    api.delete(`/projetos/${id}`)
+                        .then((res) => Alert.alert("Projeto Deletado com sucesso"))
+                        .catch((err) => {
+                            console.error("Erro ao consultar API, " + err);
+                        });
+                }
+            },
+            {
+                text: 'Não'
+            }])
+    }
+
     const getProjetos = ({ item: projeto }) => (
         <ListItem
             onPress={() => props.navigation.navigate('Viewing', projeto)}
@@ -23,8 +41,13 @@ export default props => {
             bottomDivider>
             <ListItem.Content>
                 <ListItem.Title>{projeto.nome}</ListItem.Title>
-                <ListItem.Subtitle>{projeto.descricao}</ListItem.Subtitle>   
+                <ListItem.Subtitle>{projeto.descricao}</ListItem.Subtitle>
             </ListItem.Content>
+            <Button
+                onPress={() => deleteProjeto(projeto.id)}
+                type="clear"
+                icon={<Icon name="delete-forever" size={25} color="red" />}
+            />
         </ListItem>
     );
 
@@ -42,9 +65,5 @@ export default props => {
 
 
 const styles = StyleSheet.create({
-    icon: {
-        color: "red",
-        fontSize: 24,
-        alignSelf: "center"
-    }
+
 });
