@@ -6,7 +6,7 @@
       "acoes": "Inserção\nExclusão\nEdição\nAlteração",
       "referencias": "Wikipedia",
       "id": 1,
-      "nome": "Projeto React Native"
+      "nome": "Projeto React Native Alteracao"
     },
     {
       "nome": "Projeto React",
@@ -25,10 +25,11 @@
       "id": 3
     },
     {
-      "id": 4
-    },
-    {
-      "id": 5
+      "id": 4,
+      "nome": "Nova API",
+      "descricao": "api feita em node",
+      "valor": "29.99",
+      "acoes": "Delete"
     }
   ]
 }

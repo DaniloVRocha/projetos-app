@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, View, StyleSheet } from "react-native";
-import { ListItem, Button, Icon} from 'react-native-elements';
+import { FlatList, StyleSheet, View } from "react-native";
+import { ListItem } from 'react-native-elements';
 import api from '../services/api';
 
 

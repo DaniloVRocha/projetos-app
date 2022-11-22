@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Keyboard } from "react-native";
 import { Alert } from "react-native";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import api from '../services/api';
-
+import Project from '../services/Project'
 
 export default props => {
 
@@ -20,7 +20,7 @@ export default props => {
     //         return {};
     //       }
     //     } catch(e) {
-          
+
     //     }
     //   }
 
@@ -43,7 +43,15 @@ export default props => {
                 console.error(error);
             });
     }
+    function salvarSQLITE() {
+        Project.create({ nome: "Projeto SQLITE", descricao: "Usando SQLITE pela primeira vez", valor: "29.99", acoes: "CRUD COMPLETO", referencias: "Wikipedia" })
+            .then(id => console.log("Projeto Inserido com id: " + id))
+            .catch(error => console.log(error))
+    }
 
+    function getAllSQLITE(){
+        Project.getAll().then(projetos => projetos.forEach(c => console.log(c)))
+    }
     return (
         <View style={styles.container}>
             <Text style={{ margin: 12, fontSize: 15, fontWeight: "bold" }}>Nome</Text>
@@ -96,6 +104,7 @@ export default props => {
             <TouchableOpacity style={[styles.butoa, styles.buttonPlus]}
                 onPress={() => {
                     enviar();
+                    getAllSQLITE();
                     props.navigation.navigate('Home')
                 }}>
                 <Icon name='check' style={styles.icon}></Icon>

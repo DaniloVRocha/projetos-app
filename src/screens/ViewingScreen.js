@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Alert } from "react-native";
+import React from "react";
 import { StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button';
-import Header from '../components/Header';
-import api from '../services/api';
 
 export default props => {
 
