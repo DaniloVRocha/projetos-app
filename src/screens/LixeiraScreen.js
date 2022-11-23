@@ -5,35 +5,37 @@ import { ListItem, Button, Icon } from 'react-native-elements';
 import api from '../services/api';
 import Project from '../services/Project'
 
-
 export default props => {
 
     const [projetos, setProjetos] = useState();
 
     useEffect(() => {
-        api.get("/projetos")
-            .then((res) => {
-                setProjetos(res.data)
-            })
-            .catch((err) => {
-                console.error("Erro ao consultar API, " + err);
-            });
-    }, []);
+        Project.getAll().then(projetos => setProjetos(projetos))
+    })
+
+    function restaurarProjeto(projeto){
+        aux = projeto.id;
+        projeto.id = undefined;
+        api.post("/projetos", projeto)
+        .then((response) => {
+            Project.remove(aux)
+                .then(Alert.alert("Projeto Restaurado com sucesso."))
+                .catch(error => console.error(error))
+            
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+        
+    
 
     function deleteProjeto(projeto) {
-        Alert.alert('Excluir Projeto', 'Deseja Excluir o Projeto?',[
+        Alert.alert('Excluir Projeto Permanentemente? ', 'O Projeto não poderá ser recuperado',[
             {
                 text: 'Sim',
                 onPress() {
-                    api.delete(`/projetos/${projeto.id}`)
-                        .then((res) => {
-                            Project.create(projeto)
-                            Alert.alert("Projeto Enviado Para a Lixeira.")
-                            Project.getAll().then(projetos => projetos.forEach(c => console.log(c)))
-                        })
-                        .catch((err) => {
-                            console.error("Erro ao consultar API, " + err);
-                        });
+                    Project.remove(projeto.id);
                 }
             },
             {
@@ -50,6 +52,11 @@ export default props => {
                 <ListItem.Title>{projeto.nome}</ListItem.Title>
                 <ListItem.Subtitle>{projeto.descricao}</ListItem.Subtitle>
             </ListItem.Content>
+            <Button
+                onPress={() => restaurarProjeto(projeto)}
+                type="clear"
+                icon={<Icon name="refresh" size={25} color="blue" />}
+            />
             <Button
                 onPress={() => deleteProjeto(projeto)}
                 type="clear"

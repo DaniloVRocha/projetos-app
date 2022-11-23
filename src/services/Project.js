@@ -1,7 +1,7 @@
 import db from "./SQLiteDatabase";
 
 db.transaction((tx) => {
-  tx.executeSql("DROP TABLE cars;");
+  //tx.executeSql("DROP TABLE projetos;");
   tx.executeSql(
     "CREATE TABLE IF NOT EXISTS projetos (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, descricao TEXT, valor TEXT, acoes TEXT, referencias TEXT);"
   );
@@ -42,7 +42,6 @@ const update = (id, obj) => {
 const findById = (id) => {
   return new Promise((resolve, reject) => {
     db.transaction((tx) => {
-      //comando SQL modificável
       tx.executeSql(
         "SELECT * FROM projetos WHERE id=?;",
         [id],
@@ -89,10 +88,23 @@ const getAll = () => {
 const remove = (id) => {
   return new Promise((resolve, reject) => {
     db.transaction((tx) => {
-      //comando SQL modificável
       tx.executeSql(
         "DELETE FROM projetos WHERE id=?;",
         [id],
+        (_, { rowsAffected }) => {
+          resolve(rowsAffected);
+        },
+        (_, error) => reject(error)
+      );
+    });
+  });
+};
+
+const removeAll = () => {
+  return new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        "DELETE FROM projetos;",
         (_, { rowsAffected }) => {
           resolve(rowsAffected);
         },
@@ -109,4 +121,5 @@ export default {
   findByName,
   getAll,
   remove,
+  removeAll
 };
