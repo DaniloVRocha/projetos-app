@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Alert } from "react-native";
-import { FlatList, StyleSheet, View } from "react-native";
-import { ListItem, Button, Icon } from 'react-native-elements';
+import { Alert, FlatList, View } from "react-native";
+import { Button, Icon, ListItem } from 'react-native-elements';
 import api from '../services/api';
-import Project from '../services/Project'
+import Project from '../services/Project';
 
 export default props => {
 
